@@ -49,7 +49,7 @@ app.use(router);
 let db = process.env.MONGODB_URI || "mongodb://localhost/climbingHeadlines";
 
 //connect mongoose to database
-mongoose.connect(db, function(error) {
+mongoose.connect(db, error => {
   if (error) {
     console.log("Error: " + error);
   } else {
@@ -61,6 +61,6 @@ mongoose.connect(db, function(error) {
 
 //Server
 //Listen to port
-app.listen(PORT, function() {
+app.listen(PORT, () => {
   console.log("Listening on port: " + PORT);
 });
