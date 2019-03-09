@@ -1,6 +1,6 @@
 // Dependencies
 const request = require("request");
-const require = "cheerio";
+const cheerio = require("cheerio");
 
 // scraper ------------------------------------
 
