@@ -9,30 +9,32 @@ let scrape = cb => {
     "https://www.epictv.com/media/series-home/climbing-daily/230997",
     (err, res, body) => {
       let $ = cheerio.load(body);
-      let results = [];
+      let articles = [];
       $(".content").each(function(i, element) {
-        let head = $(this)
-          .children(".picture")
+        let episode = $(this)
+          .children(".episode-number")
           .text()
           .trim();
-        let sum = $(this)
+        let head = $(this)
           .children(".media-title")
           .text()
           .trim();
 
-        if (head && sum) {
+        if (episode && head) {
+          let episodeNeat = episode
+            .replace(/(\r\n|\n|\r|\t|\s+)/gm, " ")
+            .trim();
           let headNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
-          let sumNeat = sum.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
 
           let dataToAdd = {
-            headline: headNeat,
-            summary: sumNeat
+            episodemary: episodeNeat,
+            headline: headNeat
           };
 
-          results.push(dataToAdd);
+          articles.push(dataToAdd);
         }
       });
-      cb(results);
+      cb(articles);
     }
   );
 };

@@ -46,5 +46,3 @@ module.exports = {
     );
   }
 };
-
-//might need to replace articles with results

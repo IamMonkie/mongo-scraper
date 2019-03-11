@@ -5,7 +5,7 @@ const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const router = express.Router();
 //Server/ DB ------------------------------------
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
 
 //-----------------------------------------------

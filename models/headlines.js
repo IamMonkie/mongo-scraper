@@ -8,7 +8,7 @@ let headlineSchema = new Schema({
     required: true,
     unique: true
   },
-  summary: {
+  episode: {
     type: String,
     required: true
   },

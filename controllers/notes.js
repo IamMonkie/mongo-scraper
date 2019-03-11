@@ -6,7 +6,7 @@ module.exports = {
   get: (data, cb) => {
     Note.find(
       {
-        _headlineId: data_id
+        _headlineId: data._id
       },
       cb
     );
