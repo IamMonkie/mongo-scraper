@@ -22,17 +22,18 @@ module.exports = router => {
 
   //fetch articles
   router.get("/api/fetch", (req, res) => {
+    res.json({ message: "No new articles. Try again later." });
+
     headlinesController.fetch((err, docs) => {
-      if (!docs || docs.insertedCount === 0) {
-        res.json({
-          message: "No new articles. Try again later."
-        });
-      } else {
-        res.json({
-          message: "Added " + docs.insertedCount + " new articles!"
-        });
-      }
+      console.log(docs);
     });
+
+    // if (!docs || docs.insertedCount === 0) {
+    //   res.json({ message: "No new articles. Try again later." });
+    // } else {
+    //   res.json({ message: "Added " + docs.insertedCount + " new articles!" });
+    // }
+    // });
   });
 
   //-----------------------------------------------

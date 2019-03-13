@@ -12,6 +12,8 @@ module.exports = {
         articles[i].saved = false;
       }
 
+      console.log(data);
+
       Headline.collection.insertMany(
         articles,
         { ordered: false },
