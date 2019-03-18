@@ -10,30 +10,33 @@ let scrape = cb => {
     (err, res, body) => {
       let $ = cheerio.load(body);
       let articles = [];
-      $(".content").each(function(i, element) {
-        let episode = $(this)
-          .children(".episode-number")
-          .text()
-          .trim();
-        let head = $(this)
-          .children(".media-title")
-          .text()
-          .trim();
-
-        if (episode && head) {
-          let episodeNeat = episode
-            .replace(/(\r\n|\n|\r|\t|\s+)/gm, " ")
+      $(".epictv-london-video-archive-wrapper")
+        .find(".content")
+        .each(function(i, element) {
+          let episode = $(this)
+            .children(".episode-number")
+            .text()
             .trim();
-          let headNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
+          let head = $(this)
+            .children(".media-title")
+            .text()
+            .trim();
 
-          let dataToAdd = {
-            episodemary: episodeNeat,
-            headline: headNeat
-          };
+          if (episode && head) {
+            let episodeNeat = episode
+              .replace(/(\r\n|\n|\r|\t|\s+)/gm, " ")
+              .trim();
+            let headNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, " ").trim();
 
-          articles.push(dataToAdd);
-        }
-      });
+            let dataToAdd = {
+              episodemary: episodeNeat,
+              headline: headNeat
+            };
+
+            articles.push(dataToAdd);
+          }
+        });
+
       cb(articles);
     }
   );
