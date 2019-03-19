@@ -14,11 +14,11 @@ let scrape = cb => {
         .find(".content")
         .each(function(i, element) {
           let episode = $(this)
-            .children(".episode-number")
+            .find(".episode-number")
             .text()
             .trim();
           let head = $(this)
-            .children(".media-title")
+            .find(".media-title")
             .text()
             .trim();
 
