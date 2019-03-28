@@ -13,7 +13,7 @@ module.exports = {
       }
 
       console.log(data);
-
+      // WHERE SCRAPE IS SAVED TO DB
       Headline.collection.insertMany(
         articles,
         { ordered: false },

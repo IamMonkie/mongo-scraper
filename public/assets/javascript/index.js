@@ -72,8 +72,8 @@ $(document).ready(() => {
     let articleToSave = $(this)
       .parents(".panel")
       .data();
+    // let articles = articleToSave[0].textContent;
     articleToSave.saved = true;
-
     $.ajax({
       method: "PATCH",
       url: "/api/headlines",
