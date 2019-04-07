@@ -46,7 +46,9 @@ app.use(router);
 //Database
 
 //if deployed, use the deployed database, otherwise use local climbingHeadlines database
-let db = process.env.MONGODB_URI || "mongodb://localhost/climbingHeadlines";
+let db =
+  process.env.MONGODB_URI ||
+  "mongodb://heroku_wd8w6bv5:5dgaostjiqjv8tt5qod542r2lv@ds133556.mlab.com:33556/heroku_wd8w6bv5";
 
 //connect mongoose to database
 mongoose.connect(db, error => {
